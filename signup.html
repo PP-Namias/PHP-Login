@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validation.js" defer></script>
+</head>
+<body>
+    <h1>Signup</h1>
+    <form id="signup" action="process-signup.php" method="post">
+        <div>
+            <input type="text" id="name" name="name" placeholder="Fullname">
+        </div>
+        <div>
+            <input type="email" id="email" name="email" placeholder="Email Address">
+        </div>
+        <div>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button type="button" onclick="togglePasswordVisibility('password')">Show</button>
+        </div>
+        <div>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
+            <button type="button" onclick="togglePasswordVisibility('confirm-password')">Show</button>
+        </div>
+        <div>
+            <select id="role" name="role">
+                <option value="client">Client</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <button>Signup</button>
+    </form>
+    <script>
+        function togglePasswordVisibility(id) {
+            const input = document.getElementById(id);
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+        }
+    </script>
+</body>
+</html>
